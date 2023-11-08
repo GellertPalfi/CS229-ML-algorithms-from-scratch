@@ -1,4 +1,4 @@
-from CS229.lecture_2.concepts.gradient_descent_lin_reg import lin_reg
+from concepts.linear_regression import lin_reg
 from matplotlib.animation import FuncAnimation
 
 import numpy as np
@@ -10,10 +10,10 @@ x = np.array([0, 1, 2, 3, 4, 5, 7, 9])
 y = np.array([1, 3, 5, 8, 10, 13, 17, 23])
 m = np.random.randint(0, 10)
 b = np.random.randint(0, 10)
-learning_rate = 0.01
-max_iters = 50
+learning_rate = 0.03
+max_iters = 100
 
-slopes, loss = lin_reg(max_iters, learning_rate, m, b)
+slopes, loss = lin_reg(max_iters, learning_rate, m, b, x, y)
 
 
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))

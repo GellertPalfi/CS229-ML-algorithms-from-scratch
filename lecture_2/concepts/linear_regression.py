@@ -35,7 +35,7 @@ def lin_reg(iterations: int, learning_rate: float, m: float, b: float, X, y):
         y_predicted = np.array([m * X]) + b
         grad_m: float
         grad_b: float
-        grad_m, grad_b = compute_gradients(x, y, y_predicted)
+        grad_m, grad_b = compute_gradients(X, y, y_predicted)
         m -= learning_rate * grad_m
         b -= learning_rate * grad_b
         steps.append((m, b))
