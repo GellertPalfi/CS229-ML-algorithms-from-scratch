@@ -2,9 +2,13 @@ import numpy as np
 from concepts.mean_squared_error import mean_squared_error
 from typing import Tuple
 
+
 def lin_reg(iterations: int, learning_rate: float, m: float, b: float, X, y):
     """Calculate optimal linear regression parameters using batch gradient descent.
-    
+
+    This is a really primitive implementation of linear regression and
+    it is not optimized and only works for 1D arrays.
+
     Args:
         iterations: Number of iterations to train the model for.
         learning_rate: The step size for each iteration of gradient descent.
@@ -13,19 +17,13 @@ def lin_reg(iterations: int, learning_rate: float, m: float, b: float, X, y):
         X (array-like): The input feature values.
         y (array-like): The true output values corresponding to each input.
             Should be same length as X.
-    
+
     Returns:
         steps: List containing m and b in tuples for every iteration.
         loss: List containing MSE for every iteration.
-    
-    Raises:
-        ValueError: If X and y are not the same length.
-    """        
+    """
 
-    if len(X) != len(y):
-        raise ValueError("X and y are different lengths.")
-
-    # every element of steps except the last one and loss are only 
+    # every element of steps except the last one and loss are only
     # for visualization purposes
     # the last tuple in steps contained the final values for m and b
     steps = []
@@ -53,6 +51,7 @@ def compute_gradients(X, y_actual, y_predicted) -> Tuple[float]:
     grad_b: float = np.mean(-2 * error)  # Gradient for the intercept (b)
     return (grad_m, grad_b)
 
+
 def predict(x_new, m, b):
     """Predict new values with the trained linear regression model."""
     return m * x_new + b
@@ -71,5 +70,4 @@ if __name__ == "__main__":
     final_m, final_b = steps[-1]
     new_x = 6
     predicted = predict(6, final_m, final_b)
-    print(predicted) # 15.061807807592944
-
+    print(predicted)  # 15.061807807592944
