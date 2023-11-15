@@ -7,11 +7,11 @@ import matplotlib.pyplot as plt
 
 
 y = np.array([1, 3, 5, 8, 10, 13])
-x = np.array([1, 2, 6, 10, 11, 14]).reshape(-1,1)
+x = np.array([1, 2, 6, 10, 11, 14]).reshape(-1, 1)
 max_iters = 1000
 learning_rate = 0.01
 reg = LinReg()
-slopes = reg.fit(max_iters, learning_rate,x,y )
+slopes = reg.fit(max_iters, learning_rate, x, y)
 print(slopes)
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
 
@@ -33,6 +33,8 @@ ax2.legend(["Loss"], loc="upper right")
 )
 
 iter = 0
+
+
 def update(frame):
     global iter
     print(f"{iter}/{max_iters}")

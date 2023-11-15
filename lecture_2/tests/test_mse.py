@@ -21,7 +21,6 @@ class TestMetrics(unittest.TestCase):
         )
 
         actual_res = own_mse(self.test_array1, self.test_array2, squared=True)
-        print(f"{expected_res=}, {actual_res=}")
         self.assertEqual(expected_res, actual_res)
 
 
