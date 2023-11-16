@@ -63,7 +63,7 @@ class LinReg:
         gradients: ArrayLike[float] = -2 * np.mean(X * errors[:, np.newaxis], axis=0)
         return gradients
 
-    def predict(self, x_new: ArrayLike)-> ArrayLike[float]:
+    def predict(self, x_new: ArrayLike)-> ArrayLike:
         """Predict new values with the trained linear regression model."""
         x_new = np.array(x_new)
         predicted: ArrayLike[float] = (
@@ -76,7 +76,7 @@ class LinReg:
 
 
 if __name__ == "__main__":
-    # running this script your results may differ because of random theta initalitaziation
+    np.random.seed(42)
     iterations = 10000
     learning_rate = 0.003
 
@@ -90,8 +90,8 @@ if __name__ == "__main__":
     reg = LinearRegression()
     reg.fit(x, y)
 
-    print(own_reg.coefs, own_reg.intercept)  # [0.8546798] 0.3990147783251276
-    print(reg.coef_, reg.intercept_, "\n")  # [0.8546798] 0.3990147783251228
+    print(own_reg.coefs, own_reg.intercept)  # [2.42857143] 2.8571428618554884
+    print(reg.coef_, reg.intercept_, "\n")  # [2.42857143] 2.8571428571428577 
 
     # example usage 2D
     x = np.array([[0, 0], [1, 1], [2, 4], [3, 9], [4, 16], [5, 25]])
@@ -104,14 +104,13 @@ if __name__ == "__main__":
 
     print(
         own_reg.coefs, own_reg.intercept
-    )  # [1.95327313 0.08933628] 0.9646065741404198
-    print(reg.coef_, reg.intercept_)  # [1.95357143 0.08928571] 0.9642857142857162
+    )  # [5.22429202 0.30369145] 4.8221900979826
+    print(reg.coef_, reg.intercept_, "\n")  # [5.225 0.30357143] 4.8214285714285765 
 
     new_x = np.array([[6,2],[2,3]])
-    print(reg.coef_, reg.intercept_)
     print(
         reg.predict(new_x)
-    )  # [12.86428571  5.13928571]
+    )  # [36.77857143 16.18214286]
     print(
         own_reg.predict(new_x)
-    )  # [12.84980966  5.13797303]
+    )  # [36.77532513 16.18184848

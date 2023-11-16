@@ -10,7 +10,7 @@ class TestMetrics(unittest.TestCase):
         self.test_array2 = np.array([11, 13, 16, 18])
 
     def test_mse(self):
-        expected_res = mean_squared_error(self.test_array1, self.test_array2)
+        expected_res = mean_squared_error(self.test_array1, self.test_array2, squared=True)
         actual_res = own_mse(self.test_array1, self.test_array2)
 
         self.assertEqual(expected_res, actual_res)
@@ -20,7 +20,7 @@ class TestMetrics(unittest.TestCase):
             self.test_array1, self.test_array2, squared=False
         )
 
-        actual_res = own_mse(self.test_array1, self.test_array2, squared=True)
+        actual_res = own_mse(self.test_array1, self.test_array2, squared=False)
         self.assertEqual(expected_res, actual_res)
 
 
