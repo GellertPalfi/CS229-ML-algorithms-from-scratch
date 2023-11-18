@@ -1,11 +1,11 @@
 import unittest
 import numpy as np
-from sklearn.linear_model import LinearRegression
-from concepts.linear_regression import LinReg
+import sklearn
+from lecture_2.concepts.linear_regression import LinReg
 from math import isclose
 
 
-class TestMetrics(unittest.TestCase):
+class TestLinReg(unittest.TestCase):
     def setUp(self) -> None:
         self.mock_X_1D = np.array([1, 2, 4, 6, 7, 11]).reshape(-1, 1)
         self.mock_X_2D = np.array([[0, 0], [1, 1], [2, 4], [3, 9], [4, 16], [5, 25]])
@@ -13,7 +13,7 @@ class TestMetrics(unittest.TestCase):
         self.mock_y_predict = np.array([6, 10, 17, 27, 29, 41])
         self.iterations = 5000
         self.learning_rate = 0.005
-        self.lin_reg = LinearRegression()
+        self.lin_reg = sklearn.linear_model.LinearRegression()
         self.own_lin_reg_1D = LinReg()
         self.own_lin_reg_1D.fit(
             self.iterations, self.learning_rate, self.mock_X_1D, self.mock_y

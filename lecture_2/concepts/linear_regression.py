@@ -1,6 +1,6 @@
 import numpy as np
 from numpy.typing import ArrayLike
-from concepts.mean_squared_error import mean_squared_error
+from lecture_2.concepts.mean_squared_error import mean_squared_error
 from typing import Tuple
 
 from sklearn.linear_model import LinearRegression
@@ -13,7 +13,7 @@ class LinReg:
         self.loss = []
 
     def fit(
-        self, iterations: int, learning_rate: float, X: ArrayLike, y: ArrayLike
+        self, iterations: int, alpha: float, X: ArrayLike, y: ArrayLike
     ) -> tuple[list, list]:
         """Calculate optimal linear regression parameters using batch gradient descent.
 
@@ -43,7 +43,7 @@ class LinReg:
             y_predicted: ArrayLike = np.dot(X, theta)
             # calculate and update by gradient
             gradients = self._compute_gradients(X, y, y_predicted)
-            theta -= learning_rate * gradients
+            theta -= alpha * gradients
             mse = mean_squared_error(y, y_predicted)
             # primtive early stopping
             if np.isnan(mse) or np.isinf(mse):
@@ -57,13 +57,15 @@ class LinReg:
         self.coefs = steps[-1][1:]
         return steps
 
-    def _compute_gradients(self, X: ArrayLike, y_actual: ArrayLike, y_predicted: ArrayLike) -> Tuple[float]:
+    def _compute_gradients(
+        self, X: ArrayLike, y_actual: ArrayLike, y_predicted: ArrayLike
+    ) -> Tuple[float]:
         """Calculate gradient for MSE."""
         errors: ArrayLike = y_actual - y_predicted
         gradients: ArrayLike[float] = -2 * np.mean(X * errors[:, np.newaxis], axis=0)
         return gradients
 
-    def predict(self, x_new: ArrayLike)-> ArrayLike:
+    def predict(self, x_new: ArrayLike) -> ArrayLike:
         """Predict new values with the trained linear regression model."""
         x_new = np.array(x_new)
         predicted: ArrayLike[float] = (
@@ -78,39 +80,33 @@ class LinReg:
 if __name__ == "__main__":
     np.random.seed(42)
     iterations = 10000
-    learning_rate = 0.003
+    alpha = 0.003  # learning rate
 
     # example usage 1D
     y = np.array([5, 9, 18, 25, 27, 40])
     x = np.array([1, 2, 6, 10, 11, 14]).reshape(-1, 1)
 
     own_reg = LinReg()
-    own_reg.fit(iterations, learning_rate, x, y)
+    own_reg.fit(iterations, alpha, x, y)
 
     reg = LinearRegression()
     reg.fit(x, y)
 
     print(own_reg.coefs, own_reg.intercept)  # [2.42857143] 2.8571428618554884
-    print(reg.coef_, reg.intercept_, "\n")  # [2.42857143] 2.8571428571428577 
+    print(reg.coef_, reg.intercept_, "\n")  # [2.42857143] 2.8571428571428577
 
     # example usage 2D
     x = np.array([[0, 0], [1, 1], [2, 4], [3, 9], [4, 16], [5, 25]])
 
     own_reg = LinReg()
-    own_reg.fit(iterations, learning_rate, x, y)
+    own_reg.fit(iterations, alpha, x, y)
 
     reg = LinearRegression()
     reg.fit(x, y)
 
-    print(
-        own_reg.coefs, own_reg.intercept
-    )  # [5.22429202 0.30369145] 4.8221900979826
-    print(reg.coef_, reg.intercept_, "\n")  # [5.225 0.30357143] 4.8214285714285765 
+    print(own_reg.coefs, own_reg.intercept)  # [5.22429202 0.30369145] 4.8221900979826
+    print(reg.coef_, reg.intercept_, "\n")  # [5.225 0.30357143] 4.8214285714285765
 
-    new_x = np.array([[6,2],[2,3]])
-    print(
-        reg.predict(new_x)
-    )  # [36.77857143 16.18214286]
-    print(
-        own_reg.predict(new_x)
-    )  # [36.77532513 16.18184848
+    new_x = np.array([[6, 2], [2, 3]])
+    print(reg.predict(new_x))  # [36.77857143 16.18214286]
+    print(own_reg.predict(new_x))  # [36.77532513 16.18184848
