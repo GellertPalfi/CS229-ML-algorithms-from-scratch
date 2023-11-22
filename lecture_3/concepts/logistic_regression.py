@@ -1,6 +1,9 @@
 import numpy as np
 from sklearn.linear_model import LogisticRegression as LR
-from lecture_3.concepts.binary_metrics import accuracy
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import confusion_matrix as conf_mat
+from lecture_3.concepts.binary_metrics import accuracy, confusion_matrix
+
 
 
 class LogisticRegression:
@@ -8,18 +11,26 @@ class LogisticRegression:
         self.intercept = 0
         self.coefs = []
         self.loss = []
+        self.weights = []
+        self.gradients = []
 
-    def fit(self, iterations, alpha, X, y, intercept=False):
+    def fit(self, iterations, alpha, X, y, intercept=False, log_gradient=False):
         if intercept:
             X = np.hstack([np.ones((X.shape[0], 1)), X])
 
         b = np.zeros(X.shape[1])
-        for _ in range(iterations):
+        for index in range(iterations):
             grad = self._compute_gradients(X, b, y)
             b += alpha * grad
 
+            if log_gradient:
+                self.gradients.append(grad)
+
             log_likelihood = self.log_likelihood(X, y, b)
             self.loss.append(log_likelihood)
+
+            if index % 10000 == 0:
+                print(log_likelihood)
 
         self.intercept = b[0]  # The first element of b is the intercept
         self.coefs = b[1:]
@@ -37,42 +48,35 @@ class LogisticRegression:
         return np.sum(target * scores - np.log(1 + np.exp(scores)))
 
     def predict(self, X):
-        X = np.hstack((np.ones((X.shape[0], 1)), X))
-
-        # Compute probabilities
-        probabilities = self.logistic_function(self.coefs, X)
-
-        # Convert probabilities to class labels
-        predictions = (probabilities >= 0.5).astype(int)
-        return predictions
-
+        self.weights = np.append(self.intercept, np.array(self.coefs).flatten())
+        return np.round(self.logistic_function(X, self.weights))
 
 if __name__ == "__main__":
-    np.random.seed(42)
+
+    np.random.seed(1)
     num_observations = 5000
 
     x1 = np.random.multivariate_normal([0, 0], [[1, 0.75], [0.75, 1]], num_observations)
     x2 = np.random.multivariate_normal([1, 4], [[1, 0.75], [0.75, 1]], num_observations)
-    simulated_separableish_features = np.vstack((x1, x2)).astype(np.float32)
-    simulated_labels = np.hstack((np.zeros(num_observations), np.ones(num_observations)))
-    data_with_intercept = np.hstack((np.ones((simulated_separableish_features.shape[0], 1)),
-                                 simulated_separableish_features))
-    
-    max_iter = 3000
+    features = np.vstack((x1, x2)).astype(np.float32)
+    labels = np.hstack((np.zeros(num_observations), np.ones(num_observations)))
+    data_with_intercept = np.hstack((np.ones((features.shape[0], 1)),
+                                 features))
+    max_iter = 5000
     learning_rate = 0.003
 
     log_reg = LogisticRegression()
     log_reg.fit(
-        max_iter, learning_rate, simulated_separableish_features, simulated_labels, True
+        max_iter, learning_rate, features, labels, True
     )
-    print(log_reg.intercept, log_reg.coefs)
-
+    own_predict = log_reg.predict(data_with_intercept)
 
     sk_log = LR(penalty=None)
-    sk_log.fit(simulated_separableish_features, simulated_labels)
-    print(sk_log.intercept_, sk_log.coef_)
+    sk_log.fit(features, labels)
+    predicted= sk_log.predict(features)
 
-    weights = np.append(np.array(log_reg.coefs).flatten(), log_reg.intercept)
-
-    final_scores = np.dot(data_with_intercept, weights)
-    preds = np.round(sigmoid(final_scores))
+    print(accuracy(own_predict, labels))
+    print(accuracy_score(predicted, labels))
+    print(confusion_matrix(own_predict, labels))
+    print(conf_mat(labels, own_predict))
+    

@@ -1,4 +1,4 @@
-from concepts.linear_regression import LinReg
+from lecture_2.concepts.linear_regression import LinReg
 from matplotlib.animation import FuncAnimation
 
 import numpy as np
