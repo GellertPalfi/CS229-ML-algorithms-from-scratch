@@ -13,8 +13,10 @@ class LogisticRegression:
         self.loss = []
         self.weights = []
         self.gradients = []
+        self.lambda_reg = 1
 
-    def fit(self, iterations, alpha, X, y, intercept=False, log_gradient=False):
+
+    def fit(self, iterations, alpha, X, y, intercept=False, log_gradient=False) -> None:
         if intercept:
             X = np.hstack([np.ones((X.shape[0], 1)), X])
 
@@ -29,15 +31,17 @@ class LogisticRegression:
             log_likelihood = self.log_likelihood(X, y, b)
             self.loss.append(log_likelihood)
 
-            if index % 10000 == 0:
+            if index % 200 == 0:
                 print(log_likelihood)
 
-        self.intercept = b[0]  # The first element of b is the intercept
+        self.intercept = b[0]
         self.coefs = b[1:]
 
     def _compute_gradients(self, X, b, y):
         probabilities = self.logistic_function(X, b)
-        gradient = np.dot(X.T, (y - probabilities))
+        regularization_term = self.lambda_reg * b
+        regularization_term[0] = 0  # No regularization for intercept
+        gradient = np.dot(X.T, (y - probabilities)) - regularization_term
         return gradient
 
     def logistic_function(self, X, b):
@@ -45,7 +49,10 @@ class LogisticRegression:
 
     def log_likelihood(self, features, target, weights):
         scores = np.dot(features, weights)
-        return np.sum(target * scores - np.log(1 + np.exp(scores)))
+        ll = np.sum(target * scores - np.log(1 + np.exp(scores)))
+        # Add the regularization term (excluding the intercept)
+        ll -= (self.lambda_reg / 2) * np.sum(weights[1:] ** 2)
+        return ll
 
     def predict(self, X):
         self.weights = np.append(self.intercept, np.array(self.coefs).flatten())
@@ -62,7 +69,7 @@ if __name__ == "__main__":
     labels = np.hstack((np.zeros(num_observations), np.ones(num_observations)))
     data_with_intercept = np.hstack((np.ones((features.shape[0], 1)),
                                  features))
-    max_iter = 5000
+    max_iter = 500
     learning_rate = 0.003
 
     log_reg = LogisticRegression()
@@ -71,9 +78,11 @@ if __name__ == "__main__":
     )
     own_predict = log_reg.predict(data_with_intercept)
 
-    sk_log = LR(penalty=None)
+    sk_log = LR()
     sk_log.fit(features, labels)
     predicted= sk_log.predict(features)
+    print(log_reg.coefs, log_reg.intercept)
+    print(sk_log.coef_, sk_log.intercept_)
 
     print(accuracy(own_predict, labels))
     print(accuracy_score(predicted, labels))
