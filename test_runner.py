@@ -11,7 +11,7 @@ def create_suite():
     test_suite.addTest(test_loader.loadTestsFromTestCase(test_lin_reg.TestLinReg))
     test_suite.addTest(test_loader.loadTestsFromTestCase(test_mse.TestMse))
     test_suite.addTest(
-        test_loader.loadTestsFromTestCase(test_metrics.TestConfusionMetrics)
+        test_loader.loadTestsFromTestCase(test_metrics.TestClassificationMetrics)
     )
 
     return test_suite

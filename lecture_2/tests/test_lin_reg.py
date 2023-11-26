@@ -1,8 +1,9 @@
 import unittest
+from math import isclose
+
 import numpy as np
 import sklearn
 from lecture_2.concepts.linear_regression import LinReg
-from math import isclose
 
 
 class TestLinReg(unittest.TestCase):

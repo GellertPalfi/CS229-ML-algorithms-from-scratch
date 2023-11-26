@@ -1,25 +1,24 @@
+import matplotlib.pyplot as plt
+import numpy as np
 from lecture_2.concepts.linear_regression import LinReg
 from matplotlib.animation import FuncAnimation
 
-import numpy as np
-
-import matplotlib.pyplot as plt
-
-
+# Fit regression
 y = np.array([1, 3, 5, 8, 10, 13])
 x = np.array([1, 2, 6, 10, 11, 14]).reshape(-1, 1)
 max_iters = 1000
 learning_rate = 0.01
 reg = LinReg()
 slopes = reg.fit(max_iters, learning_rate, x, y)
-print(slopes)
+
+
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
 
 ax1.set_xlim(0, max(x) + 1)
 ax1.set_ylim(0, max(y) + 1)
 data = ax1.scatter(x=x, y=y)
 (line1,) = ax1.plot([], [], "b", lw=2)
-
+# set the legend
 ax2.set_xlim(0, max_iters)
 ax2.set_ylim(0, max(reg.loss))
 ax2.set_xlabel("Iterations")

@@ -1,12 +1,14 @@
-import numpy as np
-from numpy.typing import ArrayLike
-from lecture_2.concepts.mean_squared_error import mean_squared_error
 from typing import Tuple
 
+import numpy as np
+from lecture_2.concepts.mean_squared_error import mean_squared_error
+from numpy.typing import ArrayLike
 from sklearn.linear_model import LinearRegression
 
 
 class LinReg:
+    """Linear regression model using batch gradient descent."""
+
     def __init__(self) -> None:
         self.intercept = 0
         self.coefs = []
@@ -22,14 +24,13 @@ class LinReg:
 
         Args:
             iterations: Number of iterations to train the model for.
-            learning_rate: The step size for each iteration of gradient descent.
+            alpha: The step size for each iteration of gradient descent.
             X (array-like): The input feature values.
             y (array-like): The true output values corresponding to each input.
                 Should be same length as X.
 
         Returns:
             steps: List containing m and b in tuples for every iteration.
-            loss: List containing MSE for every iteration.
         """
         # initalize 0 coeffs and intercept
         # add fake columns of 1 for better intercept fit
