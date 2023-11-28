@@ -7,21 +7,22 @@ from lecture_2.concepts.linear_regression import LinReg
 
 
 class TestLinReg(unittest.TestCase):
-    def setUp(self) -> None:
-        self.mock_X_1D = np.array([1, 2, 4, 6, 7, 11]).reshape(-1, 1)
-        self.mock_X_2D = np.array([[0, 0], [1, 1], [2, 4], [3, 9], [4, 16], [5, 25]])
-        self.mock_y = np.array([5, 9, 18, 25, 27, 40])
-        self.mock_y_predict = np.array([6, 10, 17, 27, 29, 41])
-        self.iterations = 5000
-        self.learning_rate = 0.005
-        self.lin_reg = sklearn.linear_model.LinearRegression()
-        self.own_lin_reg_1D = LinReg()
-        self.own_lin_reg_1D.fit(
-            self.iterations, self.learning_rate, self.mock_X_1D, self.mock_y
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.mock_X_1D = np.array([1, 2, 4, 6, 7, 11]).reshape(-1, 1)
+        cls.mock_X_2D = np.array([[0, 0], [1, 1], [2, 4], [3, 9], [4, 16], [5, 25]])
+        cls.mock_y = np.array([5, 9, 18, 25, 27, 40])
+        cls.mock_y_predict = np.array([6, 10, 17, 27, 29, 41])
+        cls.iterations = 5000
+        cls.learning_rate = 0.005
+        cls.lin_reg = sklearn.linear_model.LinearRegression()
+        cls.own_lin_reg_1D = LinReg()
+        cls.own_lin_reg_1D.fit(
+            cls.iterations, cls.learning_rate, cls.mock_X_1D, cls.mock_y
         )
-        self.own_lin_reg_2D = LinReg()
-        self.own_lin_reg_2D.fit(
-            self.iterations, self.learning_rate, self.mock_X_2D, self.mock_y
+        cls.own_lin_reg_2D = LinReg()
+        cls.own_lin_reg_2D.fit(
+            cls.iterations, cls.learning_rate, cls.mock_X_2D, cls.mock_y
         )
 
     def test_lin_reg_1d(self):

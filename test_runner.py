@@ -1,7 +1,7 @@
 import unittest
 
 from lecture_2.tests import test_lin_reg, test_mse
-from lecture_3.tests import test_metrics
+from lecture_3.tests import test_log_reg, test_metrics
 
 
 def create_suite():
@@ -12,6 +12,9 @@ def create_suite():
     test_suite.addTest(test_loader.loadTestsFromTestCase(test_mse.TestMse))
     test_suite.addTest(
         test_loader.loadTestsFromTestCase(test_metrics.TestClassificationMetrics)
+    )
+    test_suite.addTest(
+        test_loader.loadTestsFromTestCase(test_log_reg.TestLogisticRegression)
     )
 
     return test_suite

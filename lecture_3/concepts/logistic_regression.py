@@ -1,18 +1,17 @@
 from typing import Literal
 
 import numpy as np
-from lecture_3.concepts.binary_metrics import accuracy, confusion_matrix
+from lecture_3.concepts.binary_metrics import accuracy
 from numpy.typing import ArrayLike
 from sklearn.linear_model import LogisticRegression as LR
 from sklearn.metrics import accuracy_score
-from sklearn.metrics import confusion_matrix as conf_mat
 
 
 class LogisticRegression:
     """Logistic regression model using batch gradient descent.
 
     Args:
-        lambda_reg: Regularization term. Defaults to 1.
+        lambda_reg: L2 regularization term. Defaults to 1.
     """
 
     def __init__(self, lambda_reg=1) -> None:
