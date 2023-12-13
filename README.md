@@ -18,10 +18,10 @@ Concise implementations of fundamental machine learning algorithms from [Stanfor
 Because looking at code is not the most interesting thing,  
 here are some visualizations (Code included in the repo) that I made with my implementations of the algorithms.
 
-## Linear regression line fit:
+### Linear regression line fit:
 ![lin_reg_fit](https://github.com/GellertPalfi/CS229/assets/69762257/a4daed4c-1753-45c6-9de3-f09c07763de1)
 
-## Gradient descent searching for optimal parameters on the error surface in the weight space:
+### Gradient descent searching for optimal parameters on the error surface in the weight space:
 ![grad_descent_progression](https://github.com/GellertPalfi/CS229/assets/69762257/e59efabd-494e-4515-b9bb-4dfd7c9b42e7)
 
 <a id="disclaimer"></a>
