@@ -4,14 +4,14 @@ Concise implementations of fundamental machine learning algorithms from [Stanfor
 # Table of content:
  - [Visualizations](#visualizations)
  - [Disclaimer](#disclaimer)
- - [Linear regression](#item-three)
- - [Logistic regression](#item-three)
- - [Naive Bayes](#item-three)
- - [Support Vector Machine](#item-three)
- - [Simple Neural Networks](#item-three)
- - [Backpropagation](#item-three)
- - [Batch Gradient Descent](#item-three)
- - [Useful links](#item-three)
+ - [Linear regression](#lin-reg)
+ - [Logistic regression](#log-reg)
+ - [Naive Bayes](#naive-bayes)
+ - [Support Vector Machine](#svm)
+ - [Simple Neural Networks](#simple-NN)
+ - [Backpropagation](#back-prop)
+ - [Batch Gradient Descent](#grad-desc)
+ - [Useful links](#useful-links)
 
 <a id="visualizations"></a>
 # Visualizations:
@@ -26,4 +26,28 @@ here are some visualizations (Code included in the repo) that I made with my imp
 
 <a id="disclaimer"></a>
 # Disclaimer
-There are very simple and primitve implementations of the algorithms, the ones you find in popular ml packages such as sci-kit learn were refined and optimized for years by experts and thus any of these implementations should only be used for learning purposes.
+These algorithms are very simple and primitive implementations of those found in popular ml packages such as sci-kit learn, which have been refined and optimized by experts for years, so any of the implementations here should only be used for learning purposes.
+
+<a id="lin-reg"></a>
+# Linear regression
+
+<a id="log-reg"></a>
+# Logistic regression
+
+<a id="naive-bayes"></a>
+# Naive Bayes
+
+<a id="svm"></a>
+# Support Vector Machine
+
+<a id="simple-NN"></a>
+# Simple Neural Networks
+
+<a id="back-prop"></a>
+# Backpropagation
+
+<a id="grad-desc"></a>
+# Batch Gradient Descent
+
+<a id="useful-links"></a>
+# Useful links
