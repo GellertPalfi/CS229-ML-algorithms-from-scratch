@@ -46,6 +46,7 @@ Installation steps:
 <a id="lin-reg"></a>
 # Linear regression
 [Linear regression](https://en.wikipedia.org/wiki/Linear_regression) works by trying to model the relationship beetween the [dependent and independent variables](https://en.wikipedia.org/wiki/Dependent_and_independent_variables).  
+It is mostly used for predicting continous values and rarely for classification as it is really sensitive to outliers.  
 Altough a closed-form solution exits to linear regression, which would give you the optimal parameter values directly, I still used gradient descent to gain deeper knowledge of the algorithm.  
   
 The error metric that we are trying to minimalize is the [root](https://en.wikipedia.org/wiki/Root-mean-square_deviation) (RMSE) or the normal [mean squared error](https://en.wikipedia.org/wiki/Mean_squared_error) (MSE):  
