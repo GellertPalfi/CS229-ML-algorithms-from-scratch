@@ -54,7 +54,8 @@ The error metric that we are trying to minimalize is the [root](https://en.wikip
 
 Running the algorithm for 10k iterations with a learning rate of `0.003` the parameters almost match the ones calculated by sklearn:  
 ![image](https://github.com/GellertPalfi/CS229/assets/69762257/c96d8e6e-c810-42b0-aab0-e816910da6a9)  
-Since MSE is a convex function which means that the local optimum is also the global one, my algorithm would converge given enough time.
+Since MSE is a convex function which means that the local optimum is also the global one, my algorithm would 
+eventually converge given enough time.
 
 
 
