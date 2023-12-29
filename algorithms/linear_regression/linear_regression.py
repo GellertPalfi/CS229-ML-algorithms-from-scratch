@@ -1,9 +1,10 @@
 from typing import Tuple
 
 import numpy as np
-from lecture_2.concepts.mean_squared_error import mean_squared_error
 from numpy.typing import ArrayLike
 from sklearn.linear_model import LinearRegression
+
+from algorithms.linear_regression.mean_squared_error import mean_squared_error
 
 
 class LinReg:
@@ -78,6 +79,7 @@ class LinReg:
         return predicted
 
 
+# Example usage
 if __name__ == "__main__":
     np.random.seed(42)
     iterations = 10000

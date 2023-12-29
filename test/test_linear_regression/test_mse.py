@@ -2,7 +2,10 @@ import unittest
 
 import numpy as np
 import sklearn
-from lecture_2.concepts.mean_squared_error import mean_squared_error as own_mse
+
+from algorithms.linear_regression.mean_squared_error import (
+    mean_squared_error as own_mse,
+)
 
 
 class TestMse(unittest.TestCase):

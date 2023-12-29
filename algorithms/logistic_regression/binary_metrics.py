@@ -52,6 +52,7 @@ def f1_score(actual: ArrayLike, predicted: ArrayLike) -> float:
 
 
 def _eval_classifier(actual: ArrayLike, predicted: ArrayLike) -> dict[str, int]:
+    """Calculate true positives, true negatives, false positives, and false negatives."""
     metrics = namedtuple("Metrics", ["TP", "TN", "FP", "FN"])
     TP = np.sum(np.logical_and(actual == 1, predicted == 1))
     TN = np.sum(np.logical_and(actual == 0, predicted == 0))

@@ -2,8 +2,9 @@ import unittest
 from math import isclose
 
 import numpy as np
-from lecture_3.concepts.logistic_regression import LogisticRegression
 from sklearn.linear_model import LogisticRegression as LR
+
+from algorithms.logistic_regression.logistic_regression import LogisticRegression
 
 
 class TestLogisticRegression(unittest.TestCase):
@@ -36,7 +37,7 @@ class TestLogisticRegression(unittest.TestCase):
         )
 
         # use tolerant comparison, because our implementation might not converge in 5000 steps
-        assert isclose(self.log_reg.intercept, self.sk_log.intercept_, rel_tol=0.01)
+        assert isclose(self.log_reg.intercept, self.sk_log.intercept_[0], rel_tol=0.01)
         assert np.allclose(self.log_reg.coefs, self.sk_log.coef_, rtol=0.01)
 
     def test_compute_gradients(self):

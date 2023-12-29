@@ -1,9 +1,16 @@
+import sys
 import unittest
 from math import isclose
+from pathlib import Path
 
 import numpy as np
 import sklearn
-from lecture_2.concepts.linear_regression import LinReg
+
+# this is needed to import modules from parent directory
+project_root = Path(__file__).parents[2]
+sys.path.append(str(project_root))
+
+from algorithms.linear_regression.linear_regression import LinReg  # noqa: E402
 
 
 class TestLinReg(unittest.TestCase):

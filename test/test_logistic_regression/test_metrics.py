@@ -3,7 +3,8 @@ from collections import namedtuple
 
 import numpy as np
 import sklearn
-from lecture_3.concepts.binary_metrics import (
+
+from algorithms.logistic_regression.binary_metrics import (
     _eval_classifier,
     accuracy,
     confusion_matrix,

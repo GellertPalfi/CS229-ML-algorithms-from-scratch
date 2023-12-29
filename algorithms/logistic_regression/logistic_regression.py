@@ -1,10 +1,11 @@
 from typing import Literal
 
 import numpy as np
-from lecture_3.concepts.binary_metrics import accuracy
 from numpy.typing import ArrayLike
 from sklearn.linear_model import LogisticRegression as LR
 from sklearn.metrics import accuracy_score
+
+from algorithms.logistic_regression.binary_metrics import accuracy
 
 
 class LogisticRegression:
@@ -102,8 +103,8 @@ class LogisticRegression:
         return np.round(self.logistic_function(X, self.weights))
 
 
+# Example usage
 if __name__ == "__main__":
-    # example usage
     np.random.seed(42)
     num_observations = 5000
 

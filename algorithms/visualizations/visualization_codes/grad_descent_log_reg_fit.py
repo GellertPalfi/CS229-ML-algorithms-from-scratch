@@ -1,8 +1,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from lecture_3.concepts.logistic_regression import LogisticRegression
 from matplotlib.animation import FuncAnimation
 from sklearn.metrics import log_loss
+
+from algorithms.logistic_regression.logistic_regression import LogisticRegression
 
 np.random.seed(1)
 num_observations = 5000

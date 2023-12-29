@@ -1,7 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from lecture_2.concepts.linear_regression import LinReg
 from matplotlib.animation import FuncAnimation
+
+from algorithms.linear_regression.linear_regression import LinReg
 
 # Fit regression
 y = np.array([1, 3, 5, 8, 10, 13])
