@@ -17,8 +17,7 @@ The purpose of this project was to deepen my understanding of the most commonly 
 
 <a id="visualizations"></a>
 # Visualizations:
-Because looking at code is not the most interesting thing,  
-here are some visualizations (Code included in the repo) that I made with my implementations of the algorithms.
+Because looking at code is not the most interesting thing, here are some visualizations (Code included in the repo) that I made with my implementations of the algorithms.
 
 ### Linear regression line fit:
 ![lin_reg_fit](https://github.com/GellertPalfi/CS229/assets/69762257/a4daed4c-1753-45c6-9de3-f09c07763de1)
@@ -28,7 +27,7 @@ here are some visualizations (Code included in the repo) that I made with my imp
 
 <a id="disclaimer"></a>
 # Disclaimer
-These algorithms are very simple and primitive implementations of those found in popular ml packages such as sci-kit learn, which have been refined and optimized by experts for years, so any of the implementations here should only be used for learning purposes.  
+These algorithms are very simple and primitive implementations of those found in popular ml packages such as [sci-kit learn](https://scikit-learn.org/stable/), which have been refined and optimized by experts for years, so any of the implementations here should only be used for learning purposes.  
 All algorithms and helper functions are fully tested and the results are compared to popular ml package implementations of the same algorithm.
 
 <a id="prerequisite"></a>
@@ -41,7 +40,7 @@ Installation steps:
 1. activate your virtual enviroment
 2. install necessary libraries:  
 ```pip install -r requirements.txt```
-3. run any of the scripts with the data already provided or with your own
+3. run any of the scripts 
 
 <a id="lin-reg"></a>
 # Linear regression
