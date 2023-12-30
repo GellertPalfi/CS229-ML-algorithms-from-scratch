@@ -13,7 +13,7 @@ The purpose of this project was to deepen my understanding of the most commonly 
  - [Simple Neural Networks](#simple-NN)
  - [Backpropagation](#back-prop)
  - [Batch Gradient Descent](#grad-desc)
- - [Useful links](#useful-links)
+ - [Resources and useful links](#useful-links)
 
 <a id="visualizations"></a>
 # Visualizations:
@@ -77,4 +77,5 @@ eventually converge given enough time.
 # Batch Gradient Descent
 
 <a id="useful-links"></a>
-# Useful links
+# Resources used and useful links
+- [naive bayes implementation in python](https://blog.devgenius.io/implementing-na%C3%AFve-bayes-classification-from-scratch-with-python-badd5a9be9c3) by Gerry Christian Ongko
