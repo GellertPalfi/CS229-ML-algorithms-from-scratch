@@ -2,7 +2,7 @@
 Concise implementations of fundamental machine learning algorithms from scratch from [Stanford's CS229 course](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU).  
 The purpose of this project was to deepen my understanding of the most commonly used ML algorithms.
 
-# Table of content:
+# Table of contents:
  - [Visualizations](#visualizations)
  - [Disclaimer](#disclaimer)
  - [Prerequisites](#prerequisite)
