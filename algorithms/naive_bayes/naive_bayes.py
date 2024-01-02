@@ -103,5 +103,5 @@ if __name__ == "__main__":
     # ! my implementations seems to be numerically unstable for reasons unknown to me
     # ! and therefore performs somewhat randomly giving these 3 results:
     # ! [0.7 and 1.0]
-    # TODO investigate why this is the case
+    # TODO investigate why this is the case, additonal epsilon does not seem to help
     print(accuracy_score(y_test.to_list(), predicteded_classes))  # 0.9666666666666667

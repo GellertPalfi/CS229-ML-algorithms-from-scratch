@@ -1,0 +1,6 @@
+pytest
+polars
+scipy
+numpy
+scikit-learn
+ruff
