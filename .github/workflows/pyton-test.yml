@@ -14,7 +14,7 @@ jobs:
       run: docker build -t cs229 .
 
     - name: Run formatting in the container
-      run: docker run ruff format --check .
+      run: docker run cs229 ruff format --check .
       
     - name: Run linting in the container
       run: docker run cs229 ruff .
