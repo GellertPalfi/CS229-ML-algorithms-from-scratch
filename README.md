@@ -44,7 +44,7 @@ Installation steps:
 
 <a id="lin-reg"></a>
 # Linear regression
-[Linear regression](https://en.wikipedia.org/wiki/Linear_regression) works by trying to model the relationship beetween the [dependent and independent variables](https://en.wikipedia.org/wiki/Dependent_and_independent_variables).  
+[Linear regression](https://en.wikipedia.org/wiki/Linear_regression) is a statistical model which tries to model the relationship beetween the [dependent and independent variables](https://en.wikipedia.org/wiki/Dependent_and_independent_variables).  
 It is mostly used for predicting continous values and rarely for classification as it is really sensitive to outliers.  
 Altough a closed-form solution exits to linear regression, which would give you the optimal parameter values directly, I still used gradient descent to gain deeper knowledge of the algorithm.  
   
@@ -60,6 +60,7 @@ eventually converge given enough time.
 
 <a id="log-reg"></a>
 # Logistic regression
+[Logistic regression](https://en.wikipedia.org/wiki/Logistic_regression) is a statistical model which works by applying the [logistic function](https://en.wikipedia.org/wiki/Logistic_function) to the linear relationship combined from the input features, weights and biases. Mostly used for classification with a given treshold (usually 0.5), where values returned by the logistic function greater than or equal to the treshold are classified as 1 , below the treshold classified as 0.
 
 <a id="naive-bayes"></a>
 # Naive Bayes
