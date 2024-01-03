@@ -1,7 +1,11 @@
 name: Python application lint and unittest
 
-on: [push, pull_request]
-
+on:
+  push:
+    paths:
+      - algorithms/**
+      - data/**
+      - tests/**
 jobs:
   build:
     
