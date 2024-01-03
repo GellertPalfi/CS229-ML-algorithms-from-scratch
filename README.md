@@ -63,6 +63,18 @@ eventually converge given enough time.
 
 <a id="naive-bayes"></a>
 # Naive Bayes
+[Naive Bayes classifier](https://en.wikipedia.org/wiki/Naive_Bayes_classifier) is a probabilistic classifier based on [Bayes' theorem](https://en.wikipedia.org/wiki/Bayes%27_theorem) and the **naive** assumption
+that the features are [independent](https://en.wikipedia.org/wiki/Independence_(probability_theory)). Although the features are rarely independent naive bayes is nevertheless used in real situations because of its speed and the fact that it gives surprisingly good results. Naive bayes differs from the usual ml algorithm because for the training a closed-form solution can be used rather than an expensive iterative algorithm such as [gradient descent](#grad-desc). I implemented a Gaussian Naive bayes classifier which assumes that the features are independent, continous variables and they follow a normal distribution.
+
+For this you only need to calculate the mean, variance and prior probability of each class(here i used [polars](https://pola.rs): 
+![image](https://github.com/GellertPalfi/CS229-ML-algorithms-from-scratch/assets/69762257/989bf45e-9017-47cb-8b76-7d386d05dd44)  
+
+After this any new prediction can be made by pluggint these variables into the [Probability density function](https://en.wikipedia.org/wiki/Probability_density_function) and returing the label with the higest probablity:  
+![image](https://github.com/GellertPalfi/CS229-ML-algorithms-from-scratch/assets/69762257/500addef-663f-4957-a2fc-aa3ccaa58875)  
+
+
+
+
 
 <a id="svm"></a>
 # Support Vector Machine
@@ -78,4 +90,5 @@ eventually converge given enough time.
 
 <a id="useful-links"></a>
 # Resources used and useful links
-- [naive bayes implementation in python](https://blog.devgenius.io/implementing-na%C3%AFve-bayes-classification-from-scratch-with-python-badd5a9be9c3) by Gerry Christian Ongko
+- [CS229 lecture notes](https://cs229.stanford.edu/main_notes.pdf)
+- [CS229 YT playlist](https://www.youtube.com/watch?v=jGwO_UgTS7I&list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
