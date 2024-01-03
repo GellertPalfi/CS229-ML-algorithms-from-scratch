@@ -12,8 +12,11 @@ jobs:
     
     - name: Build docker image
       run: docker build -t cs229 .
+
+    - name: Run formatting in the container
+      run: docker run ruff format --check .
       
-    - name: Run linting in the donctainer
+    - name: Run linting in the container
       run: docker run cs229 ruff .
     
     - name: Run tests in the container
