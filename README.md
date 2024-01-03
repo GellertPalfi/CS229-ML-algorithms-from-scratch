@@ -60,7 +60,17 @@ eventually converge given enough time.
 
 <a id="log-reg"></a>
 # Logistic regression
-[Logistic regression](https://en.wikipedia.org/wiki/Logistic_regression) is a statistical model which works by applying the [logistic function](https://en.wikipedia.org/wiki/Logistic_function) to the linear relationship combined from the input features, weights and biases. Mostly used for classification with a given treshold (usually 0.5), where values returned by the logistic function greater than or equal to the treshold are classified as 1 , below the treshold classified as 0.
+[Logistic regression](https://en.wikipedia.org/wiki/Logistic_regression) is a statistical model which works by applying the [logistic function](https://en.wikipedia.org/wiki/Logistic_function) to the linear relationship combined from the input features, weights and biases. Mostly used for classification with a given treshold (usually 0.5), where values returned by the logistic function greater than or equal to the treshold are classified as 1 , below the treshold classified as 0.  
+
+Logistic regression is most commonly trained by minimizing the negative of the log likelihood:  
+![image](https://github.com/GellertPalfi/CS229-ML-algorithms-from-scratch/assets/69762257/18b1fb19-b291-4bca-b81e-236f616bbb15)
+
+Training and then comparing my results to sklearn yields similar results:  
+![image](https://github.com/GellertPalfi/CS229-ML-algorithms-from-scratch/assets/69762257/5b701bc9-7da8-402e-8855-75aeb730a469)  
+As you can see the weights are of by a little bit. This is because my algorithm haven't converged yet. The log likelihood is a concave function, meaning any local optimum is also the global one.
+This means my algorithm would eventually reach the same weights as sklearn given enough iterations.
+
+
 
 <a id="naive-bayes"></a>
 # Naive Bayes
