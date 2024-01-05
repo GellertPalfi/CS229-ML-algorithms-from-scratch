@@ -17,7 +17,7 @@ class LinReg:
 
     def fit(
         self, iterations: int, alpha: float, X: ArrayLike, y: ArrayLike
-    ) -> tuple[list, list]:
+    ) -> list[float]:
         """Calculate optimal linear regression parameters using batch gradient descent.
 
         This is a really primitive implementation of linear regression and
@@ -35,7 +35,8 @@ class LinReg:
         """
         # initalize 0 coeffs and intercept
         # add fake columns of 1 for better intercept fit
-        theta = np.random.rand(X.shape[1] + 1) * 10
+        rng = np.random.default_rng(42)
+        theta = rng.random(X.shape[1] + 1) * 10
         X = np.hstack((np.ones((X.shape[0], 1)), X))
         steps = []
         self.loss = []
@@ -61,7 +62,7 @@ class LinReg:
 
     def _compute_gradients(
         self, X: ArrayLike, y_actual: ArrayLike, y_predicted: ArrayLike
-    ) -> Tuple[float]:
+    ) -> tuple[float]:
         """Calculate gradient for MSE."""
         errors: ArrayLike = y_actual - y_predicted
         gradients: ArrayLike[float] = -2 * np.mean(X * errors[:, np.newaxis], axis=0)
@@ -81,7 +82,6 @@ class LinReg:
 
 # Example usage
 if __name__ == "__main__":
-    np.random.seed(42)
     iterations = 10000
     alpha = 0.003  # learning rate
 

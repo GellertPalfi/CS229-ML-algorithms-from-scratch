@@ -1,11 +1,10 @@
 from typing import Literal
 
 import numpy as np
+from algorithms.logistic_regression.binary_metrics import accuracy
 from numpy.typing import ArrayLike
 from sklearn.linear_model import LogisticRegression as LR
 from sklearn.metrics import accuracy_score
-
-from algorithms.logistic_regression.binary_metrics import accuracy
 
 
 class LogisticRegression:
@@ -105,11 +104,11 @@ class LogisticRegression:
 
 # Example usage
 if __name__ == "__main__":
-    np.random.seed(42)
     num_observations = 5000
 
-    x1 = np.random.multivariate_normal([0, 0], [[1, 0.75], [0.75, 1]], num_observations)
-    x2 = np.random.multivariate_normal([1, 4], [[1, 0.75], [0.75, 1]], num_observations)
+    rng = np.random.default_rng(42)
+    x1 = rng.multivariate_normal([0, 0], [[1, 0.75], [0.75, 1]], num_observations)
+    x2 = rng.multivariate_normal([1, 4], [[1, 0.75], [0.75, 1]], num_observations)
     features = np.vstack((x1, x2)).astype(np.float32)
     labels = np.hstack((np.zeros(num_observations), np.ones(num_observations)))
     data_with_intercept = np.hstack((np.ones((features.shape[0], 1)), features))
