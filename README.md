@@ -1,3 +1,6 @@
+![build status](https://github.com/GellertPalfi/CS229-ML-algorithms-from-scratch/actions/workflows/pyton-test.yml/badge.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # CS229 Machine Learning Algorithms
 Concise implementations of fundamental machine learning algorithms from scratch from [Stanford's CS229 course](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU).  
 The purpose of this project was to deepen my understanding of the most commonly used ML algorithms.
