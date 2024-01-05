@@ -43,7 +43,7 @@ class LogisticRegression:
             log_gradient: Whether to log the gradient at each iteration.
                 Defaults to False.
             verbose: Whether to print the loss at every 100 iteration.
-              Defaults to False.
+                Defaults to False.
         """
 
         if intercept:

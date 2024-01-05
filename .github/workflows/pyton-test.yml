@@ -1,7 +1,12 @@
-name: Python application lint and unittest
+name: Build
 
-on: [push, pull_request]
-
+on:
+  push:
+    paths:
+      - algorithms/**
+      - data/**
+      - tests/**
+      - .github/**
 jobs:
   build:
     
@@ -12,8 +17,11 @@ jobs:
     
     - name: Build docker image
       run: docker build -t cs229 .
+
+    - name: Run formatting in the container
+      run: docker run cs229 ruff format --check .
       
-    - name: Run linting in the donctainer
+    - name: Run linting in the container
       run: docker run cs229 ruff .
     
     - name: Run tests in the container
