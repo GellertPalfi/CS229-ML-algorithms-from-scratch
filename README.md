@@ -27,6 +27,9 @@ Because looking at code is not the most interesting thing, here are some visuali
 
 ### Gradient descent searching for optimal parameters on the error surface in the weight space:
 ![grad_descent_progression](https://github.com/GellertPalfi/CS229/assets/69762257/e59efabd-494e-4515-b9bb-4dfd7c9b42e7)
+![asd]![svm_lambda](https://github.com/GellertPalfi/CS229-ML-algorithms-from-scratch/assets/69762257/01daa8dc-d163-46c3-92d0-40b7c67f4aaa)
+
+
 
 <a id="disclaimer"></a>
 # Disclaimer
