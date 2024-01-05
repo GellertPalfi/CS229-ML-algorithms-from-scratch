@@ -1,4 +1,4 @@
-name: Python application lint and unittest
+name: Build
 
 on:
   push:
