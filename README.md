@@ -111,3 +111,4 @@ After this any new prediction can be made by pluggint these variables into the [
 - [CS229 YT playlist](https://www.youtube.com/watch?v=jGwO_UgTS7I&list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
 - [Logistic Regression from Scratch in Python](https://beckernick.github.io/logistic-regression-from-scratch/)
 - [Building a Neural Network from Scratch in Python and in TensorFlow](https://beckernick.github.io/neural-network-scratch/)
+- [svm-from-scratch](https://www.kaggle.com/code/prabhat12/svm-from-scratch)
