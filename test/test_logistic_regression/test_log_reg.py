@@ -10,14 +10,14 @@ from algorithms.logistic_regression.logistic_regression import LogisticRegressio
 class TestLogisticRegression(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        np.random.seed(42)
+        rng = np.random.default_rng(42)
         num_observations = 500
         cls.max_iter = 5000
         cls.learning_rate = 0.003
-        x1 = np.random.multivariate_normal(
+        x1 = rng.multivariate_normal(
             [0, 0], [[1, 0.75], [0.75, 1]], num_observations
         )
-        x2 = np.random.multivariate_normal(
+        x2 = rng.multivariate_normal(
             [1, 4], [[1, 0.75], [0.75, 1]], num_observations
         )
         cls.mock_X = np.array([[1, 2, 3], [4, 5, 6]])

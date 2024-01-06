@@ -23,6 +23,7 @@ class SVM:
         self.n_iterations = n_iterations
         self.w = None
         self.b = None
+        self.loss = []
 
     def fit(self, X: ArrayLike, y: ArrayLike) -> list[float]:
         """Calculate optimal SVM parameters using batch gradient descent.
@@ -34,10 +35,10 @@ class SVM:
         n_features = X.shape[1]
         self.w = np.zeros(n_features)
         self.b = 0
-        loss = []
 
         for _ in range(self.n_iterations):
-            loss.append(self.hingeloss(X, y, self.w, self.b, self.lambda_))
+            self.loss.append(self.hingeloss(X, y))
+
             for i, Xi in enumerate(X):
                 # check whether the point is correctly classified
                 # and outside the margin:
@@ -49,14 +50,10 @@ class SVM:
                     )
                     self.b -= self.alpha * y[i]
 
-        return loss
-
-    def hingeloss(
-        self, X: ArrayLike, y: ArrayLike, w: ArrayLike, b: float, lambda_param: float
-    ) -> float:
+    def hingeloss(self, X: ArrayLike, y: ArrayLike) -> float:
         """Calculate the hinge loss."""
-        hinge_loss = np.maximum(0, 1 - y * (np.dot(X, w) - b)).mean()
-        regularization_loss = lambda_param * np.dot(w, w)
+        hinge_loss = np.maximum(0, 1 - y * (np.dot(X, self.w) - self.b)).mean()
+        regularization_loss = self.lambda_ * np.dot(self.w, self.w)
         return hinge_loss + regularization_loss
 
     def predict(self, X: ArrayLike):
@@ -71,9 +68,9 @@ if __name__ == "__main__":
     X, y = make_blobs(n_samples=200, centers=2, random_state=0, cluster_std=0.60)
     y = np.where(y <= 0, -1, 1)
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
-
+    print(X_test)
     svm = SVM()
-    loss = svm.fit(X_train, y_train)
+    svm.fit(X_train, y_train)
     svc = SVC(kernel="linear")
     svc.fit(X_train, y_train)
     svc.predict(X_test)  # Accuracy: 1.0
