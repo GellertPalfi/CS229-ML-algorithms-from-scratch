@@ -104,6 +104,16 @@ After this any new prediction can be made by pluggint these variables into the [
 
 <a id="svm"></a>
 # Support Vector Machine
+[Support vector machines](https://en.wikipedia.org/wiki/Support_vector_machine) are [max-margin] models. The algorithm tries to find a hyperplane which best seperates the two classes. For this it uses support vectors (the closest point of the two classes to the hyperplane) and by maximizing the margin (the distance beetween the points and the hyperplane). SVM-s are widely adopted in the industry, because they can classify data that is not linearly separable, by utilising the [kernel trick](https://en.wikipedia.org/wiki/Kernel_method#Mathematics:_the_kernel_trick) which cast the points into a higher dimensional, without actually calculating the point values in the higher dimension space.Here they might actually  be linearly seperable.
+There are 2 types of the svms:
+- Linear SVM
+- Non-linear SVM
+
+I've implemented a Linear SVM with a simple linear kernel. I followed the same principles as with logistic regression, but here i needed to maximize the [hinge loss](https://en.wikipedia.org/wiki/Hinge_loss).  
+
+![hingeloss](https://github.com/GellertPalfi/CS229-ML-algorithms-from-scratch/assets/69762257/b62bd35b-ffd2-43f9-905a-2e7bf136acd1)
+
+
 
 <a id="simple-NN"></a>
 # Simple Neural Networks
