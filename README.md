@@ -110,7 +110,7 @@ After this any new prediction can be made by pluggint these variables into the [
 
 <a id="back-prop"></a>
 # Backpropagation
-Writing here about [backpropagation](https://en.wikipedia.org/wiki/Backpropagation) without going into the depths and writing 5+ pages is kinda hard, so here is a *really* is a short explanation: You calculate the error at the end of the NN and using the chain rule to calculate errors in previous layers. However this creates more problems such as: [vanishing gradient](https://en.wikipedia.org/wiki/Vanishing_gradient_problem) or the opposite [exploding gradient](https://deepai.org/machine-learning-glossary-and-terms/exploding-gradient-problem)
+Writing here about [backpropagation](https://en.wikipedia.org/wiki/Backpropagation) without going into the depths and writing 5+ pages is kinda hard, so here is a *really* short explanation: You calculate the error at the end of the NN and using the chain rule to calculate errors in previous layers. However this creates more problems such as: [vanishing gradient](https://en.wikipedia.org/wiki/Vanishing_gradient_problem) or the opposite [exploding gradient](https://deepai.org/machine-learning-glossary-and-terms/exploding-gradient-problem)
 
 <a id="grad-desc"></a>
 # Batch Gradient Descent
