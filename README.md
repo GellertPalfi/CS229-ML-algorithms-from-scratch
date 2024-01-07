@@ -8,6 +8,7 @@ The purpose of this project was to deepen my understanding of the most commonly 
 # Table of contents:
  - [Visualizations](#visualizations)
  - [Disclaimer](#disclaimer)
+ - [Tests](#tests)
  - [Prerequisites](#prerequisite)
  - [Linear regression](#lin-reg)
  - [Logistic regression](#log-reg)
@@ -23,22 +24,27 @@ The purpose of this project was to deepen my understanding of the most commonly 
 Because looking at code is not the most interesting thing, here are some visualizations (Code included in the repo) that I made with my implementations of the algorithms.
 
 ### Linear regression line fit:
-![lin_reg_fit](https://github.com/GellertPalfi/CS229/assets/69762257/a4daed4c-1753-45c6-9de3-f09c07763de1)
+![lin_reg_fit](https://github.com/GellertPalfi/CS229-ML-algorithms-from-scratch/assets/69762257/9779e50f-5ed8-4f6c-80a7-27a4fb98fcb2)
 
 ### Gradient descent searching for optimal parameters on the error surface in the weight space:
-![grad_descent_progression](https://github.com/GellertPalfi/CS229/assets/69762257/e59efabd-494e-4515-b9bb-4dfd7c9b42e7)
-![asd]![svm_lambda](https://github.com/GellertPalfi/CS229-ML-algorithms-from-scratch/assets/69762257/01daa8dc-d163-46c3-92d0-40b7c67f4aaa)
+![grad_descent_progression](https://github.com/GellertPalfi/CS229-ML-algorithms-from-scratch/assets/69762257/8003ae93-2b56-4ae1-9ed9-5e18c38fa297)
+
+
+
 
 
 
 <a id="disclaimer"></a>
 # Disclaimer
 These algorithms are very simple and primitive implementations of those found in popular ml packages such as [sci-kit learn](https://scikit-learn.org/stable/), which have been refined and optimized by experts for years, so any of the implementations here should only be used for learning purposes.  
-All algorithms and helper functions are fully tested and the results are compared to popular ml package implementations of the same algorithm.
+
+<a id="tests"></a>
+# Tests
+All algorithms and helper functions are fully tested with a coverage of: [coverage badge]
 
 <a id="prerequisite"></a>
 # Prerequisites
-To run this project you will need to have python installed on your machine and a virtual enviroment.
+To run this project you will need to have python installed on your machine and (preferably) a virtual enviroment.
 
 <a id="install"></a>
 # Install
@@ -101,9 +107,13 @@ After this any new prediction can be made by pluggint these variables into the [
 
 <a id="back-prop"></a>
 # Backpropagation
+Writing here about [backpropagation](https://en.wikipedia.org/wiki/Backpropagation) without going into the depths and writing 5+ pages is kinda hard, so here is a *really* is a short explanation: You calculate the error at the end of the NN and using the chain rule to calculate errors in previous layers. However this creates more problems such as: [vanishing gradient](https://en.wikipedia.org/wiki/Vanishing_gradient_problem) or the opposite [exploding gradient](https://deepai.org/machine-learning-glossary-and-terms/exploding-gradient-problem)
 
 <a id="grad-desc"></a>
 # Batch Gradient Descent
+For us to understand gradient descent, first we need to know what the gradient is. According to wikipedia:  
+![gradient](https://github.com/GellertPalfi/CS229-ML-algorithms-from-scratch/assets/69762257/89c4eab7-8327-4323-bbe5-b724df9a4763)
+
 
 <a id="useful-links"></a>
 # Resources used and useful links
