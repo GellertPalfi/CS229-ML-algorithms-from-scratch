@@ -14,12 +14,8 @@ class TestLogisticRegression(unittest.TestCase):
         num_observations = 500
         cls.max_iter = 5000
         cls.learning_rate = 0.003
-        x1 = rng.multivariate_normal(
-            [0, 0], [[1, 0.75], [0.75, 1]], num_observations
-        )
-        x2 = rng.multivariate_normal(
-            [1, 4], [[1, 0.75], [0.75, 1]], num_observations
-        )
+        x1 = rng.multivariate_normal([0, 0], [[1, 0.75], [0.75, 1]], num_observations)
+        x2 = rng.multivariate_normal([1, 4], [[1, 0.75], [0.75, 1]], num_observations)
         cls.mock_X = np.array([[1, 2, 3], [4, 5, 6]])
         cls.mock_y = np.array([0, 1])
         cls.mock_weights = np.array([0.423, 0.123, 0.678])
