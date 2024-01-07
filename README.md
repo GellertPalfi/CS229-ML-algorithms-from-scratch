@@ -62,12 +62,14 @@ It is mostly used for predicting continous values and rarely for classification 
 Altough a closed-form solution exits to linear regression, which would give you the optimal parameter values directly, I still used gradient descent to gain deeper knowledge of the algorithm.  
   
 The error metric that we are trying to minimalize is the [root](https://en.wikipedia.org/wiki/Root-mean-square_deviation) (RMSE) or the normal [mean squared error](https://en.wikipedia.org/wiki/Mean_squared_error) (MSE):  
-![image](https://github.com/GellertPalfi/CS229/assets/69762257/09f93ae5-abdd-4d09-bec6-468b3d835412)  
+![mse](https://github.com/GellertPalfi/CS229-ML-algorithms-from-scratch/assets/69762257/416cb1a2-eeec-4878-9747-8e4e1d948ef6)
+
 
 Running the algorithm for 10k iterations with a learning rate of `0.003` the parameters almost match the ones calculated by sklearn:  
-![image](https://github.com/GellertPalfi/CS229/assets/69762257/c96d8e6e-c810-42b0-aab0-e816910da6a9)  
+![coefs](https://github.com/GellertPalfi/CS229-ML-algorithms-from-scratch/assets/69762257/7c2e5b71-006d-4fa8-b48f-f5457bf48c51)
+
 Since MSE is a convex function which means that the local optimum is also the global one, my algorithm would 
-eventually converge given enough time.
+eventually converge given enough iterations.
 
 
 
