@@ -10,6 +10,7 @@ The purpose of this project was to deepen my understanding of the most commonly 
  - [Disclaimer](#disclaimer)
  - [Tests](#tests)
  - [Prerequisites](#prerequisite)
+ - [Installation](#install)
  - [Linear regression](#lin-reg)
  - [Logistic regression](#log-reg)
  - [Naive Bayes](#naive-bayes)
@@ -47,7 +48,7 @@ All algorithms and helper functions are fully tested with a coverage of: [covera
 To run this project you will need to have python installed on your machine and (preferably) a virtual enviroment.
 
 <a id="install"></a>
-# Install
+# Installation
 Installation steps:
 1. activate your virtual enviroment
 2. install necessary libraries:  
@@ -113,9 +114,21 @@ Writing here about [backpropagation](https://en.wikipedia.org/wiki/Backpropagati
 # Batch Gradient Descent
 For us to understand gradient descent, first we need to know what the gradient is. According to wikipedia:  
 ![gradient](https://github.com/GellertPalfi/CS229-ML-algorithms-from-scratch/assets/69762257/89c4eab7-8327-4323-bbe5-b724df9a4763).  
-With (kind of) human-readable terms: The gradient is a vector whose length matches the number of variables in the function it is derived from. Each component is the derivative of the function with respect to one variable, treating all others as constants, indicating how altering that specific variable leads to the greatest change in the function's value. So now knowing the gradient, we can step into the opposite direction (hence the name descent) of the gradient to reach the minimum of the function (which is usually our objective when training an ml model). This goes on until the gradient is converged, which is usally checked by either comparing the loss or the gradient change by iteration and if they are only changing by a really small value between steps, the algorithm has converged. There are several types of gradient descent:  
+With (kind of) human-readable terms: The gradient is a vector whose length matches the number of variables in the function it is derived from. Each component is the derivative of the function with respect to one variable, treating all others as constants, indicating how altering that specific variable leads to the greatest change in the function's value. So now knowing the gradient, we can step into the opposite direction (hence the name descent) of the gradient to reach the minimum of the function (which is usually our objective when training an ml model). This goes on until the gradient is converged, which is usally checked by either comparing the loss or the gradient change by iteration and if they are only changing by a really small value between steps, the algorithm has converged.  
+There are several types of gradient descent:  
 - Batch gradient descent
-- S
+- Stochastic Gradient Descent
+- Mini-batch Gradient Descent
+
+
+Here I will only talk about Batch gradient descent which is the one I implemented for my algorithms:
+Batch gradient works by calculating the gradient for the whole dataset then updating parameters accordingly. Which is good because this means the algorithm will always converge and bad (and this is why it is never used in real world scenarios) because calculating the gradient for a whole dataset is very slow, especially if you do it thousands of times.
+There is no single implementation for gradient descent since calculating it is different for every function, but here is my implementation for calculating it for MSE:  
+
+![image](https://github.com/GellertPalfi/CS229-ML-algorithms-from-scratch/assets/69762257/caa52378-2f51-431b-b32c-9433d06057a3)  
+and actually updating the parameters:  
+![image](https://github.com/GellertPalfi/CS229-ML-algorithms-from-scratch/assets/69762257/cd331988-bf69-4a33-ae31-1e6f6d72eff7)
+
 
 
 <a id="useful-links"></a>
