@@ -18,9 +18,9 @@ jobs:
     - name: Build docker image
       run: docker build -t cs229 .
     - name: Run tests and generate coverage
-      run: |
-        container_id=$(docker run -d cs229 sh -c "ls /usr/src/app && coverage run -m pytest && ls -a")
-        docker cp ${container_id}:/usr/src/app/.coverage ./.coverage
+      run: docker run --name mlalgs cs229 coverage run -m pytest
+    - name: Copy coverage file
+      run: docker cp mlagls:/usr/src/app/.coverage ./.coverage
     - name: Run formatting
       run: docker run cs229 ruff format --check .
       
