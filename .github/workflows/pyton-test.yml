@@ -21,7 +21,7 @@ jobs:
     - name: Run tests and generate coverage
       run: docker run --name mlalgs cs229 coverage run -m pytest
     - name: Run coveralls
-      run: docker run cs229 /bin/bash -c "coverage run -m pytest && coveralls"
+      run: docker run -e COVERALLS_REPO_TOKEN=${{ secrets.COVERALL_REPO_KEY }} cs229 /bin/bash -c "coverage run -m pytest && coveralls"
       
     - name: Copy coverage file
       run: docker cp mlalgs:/usr/src/app/.coverage ./.coverage
