@@ -27,7 +27,7 @@ jobs:
     - name: Run tests
       run: docker run cs229 coverage run -m pytest
     - name: list files
-      run: docker run cs229 ls
+      run: docker run cs229 ls -a
 
     - name: Run coverage check
       run: docker run cs229 coverage lcov
