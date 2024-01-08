@@ -15,8 +15,6 @@ The purpose of this project was to deepen my understanding of the most commonly 
  - [Logistic regression](#log-reg)
  - [Naive Bayes](#naive-bayes)
  - [Support Vector Machine](#svm)
- - [Simple Neural Networks](#simple-NN)
- - [Backpropagation](#back-prop)
  - [Batch Gradient Descent](#grad-desc)
  - [Resources and useful links](#useful-links)
 
@@ -112,15 +110,6 @@ There are 2 types of the svms:
 I've implemented a Linear SVM with a simple linear kernel. I followed the same principles as with logistic regression, but here i needed to maximize the [hinge loss](https://en.wikipedia.org/wiki/Hinge_loss).  
 
 ![hingeloss](https://github.com/GellertPalfi/CS229-ML-algorithms-from-scratch/assets/69762257/b62bd35b-ffd2-43f9-905a-2e7bf136acd1)
-
-
-
-<a id="simple-NN"></a>
-# Simple Neural Networks
-
-<a id="back-prop"></a>
-# Backpropagation
-Writing here about [backpropagation](https://en.wikipedia.org/wiki/Backpropagation) without going into the depths and writing 5+ pages is kinda hard, so here is a *really* short explanation: You calculate the error at the end of the NN and using the chain rule to calculate errors in previous layers. However this creates more problems such as: [vanishing gradient](https://en.wikipedia.org/wiki/Vanishing_gradient_problem) or the opposite [exploding gradient](https://deepai.org/machine-learning-glossary-and-terms/exploding-gradient-problem)
 
 <a id="grad-desc"></a>
 # Batch Gradient Descent
