@@ -40,7 +40,7 @@ These algorithms are very simple and primitive implementations of those found in
 
 <a id="tests"></a>
 # Tests
-All algorithms and helper functions are fully tested with a coverage of: [coverage badge]
+All algorithms and helper functions are tested with a coverage of: [![Coverage Status](https://coveralls.io/repos/github/GellertPalfi/CS229-ML-algorithms-from-scratch/badge.svg)](https://coveralls.io/github/GellertPalfi/CS229-ML-algorithms-from-scratch)
 
 <a id="prerequisite"></a>
 # Prerequisites
