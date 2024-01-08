@@ -28,7 +28,7 @@ jobs:
       run: docker run cs229 pytest
 
     - name: Run coverage check
-      run: coverage run -m pytest
+      run: docker run cs229 coverage run -m pytest
       
     - name: Coveralls GitHub Action
       uses: coverallsapp/github-action@v2.2.3
