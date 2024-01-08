@@ -18,8 +18,7 @@ class LinReg:
     ) -> list[float]:
         """Calculate optimal linear regression parameters using batch gradient descent.
 
-        This is a really primitive implementation of linear regression and
-        early stopping.
+        This is a really primitive implementation of linear regression.
 
         Args:
             iterations: Number of iterations to train the model for.
@@ -46,9 +45,6 @@ class LinReg:
             gradients = self._compute_gradients(X, y, y_predicted)
             theta -= alpha * gradients
             mse = mean_squared_error(y, y_predicted)
-            # primtive early stopping
-            if np.isnan(mse) or np.isinf(mse):
-                break
 
             # log metrics
             steps.append(np.copy(theta))

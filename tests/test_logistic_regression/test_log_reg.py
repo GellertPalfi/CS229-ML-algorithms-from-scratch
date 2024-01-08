@@ -1,3 +1,5 @@
+import io
+import sys
 import unittest
 from math import isclose
 
@@ -22,16 +24,16 @@ class TestLogisticRegression(unittest.TestCase):
         cls.mock_regularization = 1
         cls.features = np.vstack((x1, x2)).astype(np.float32)
         cls.labels = np.hstack((np.zeros(num_observations), np.ones(num_observations)))
-
-        cls.log_reg = LogisticRegression()
         cls.sk_log = LR()
 
+    def setUp(self) -> None:
+        self.log_reg = LogisticRegression()
+
     def test_fit(self):
-        self.sk_log.fit(self.features, self.labels)
         self.log_reg.fit(
             self.max_iter, self.learning_rate, self.features, self.labels, True
         )
-
+        self.sk_log.fit(self.features, self.labels)
         # use tolerant comparison, because our implementation might not converge in 5000 steps
         assert isclose(self.log_reg.intercept, self.sk_log.intercept_[0], rel_tol=0.01)
         assert np.allclose(self.log_reg.coefs, self.sk_log.coef_, rtol=0.01)
@@ -72,7 +74,30 @@ class TestLogisticRegression(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_predict(self):
+        self.log_reg.fit(
+            self.max_iter, self.learning_rate, self.features, self.labels, True
+        )
         expected_prediction = np.array([1, 0])
         prediction = self.log_reg.predict(self.mock_X)
 
         self.assertEqual(prediction.all(), expected_prediction.all())
+
+    def test_verbose_prints(self):
+        captured_output = io.StringIO()
+        sys.stdout = captured_output
+        self.log_reg.fit(
+            self.max_iter, self.learning_rate, self.features, self.labels, verbose=True
+        )
+        sys.stdout = sys.__stdout__
+        assert "-811.2455164597706\n" in captured_output.getvalue()
+
+    def test_gradient_logged(self):
+        self.log_reg.fit(
+            self.max_iter,
+            self.learning_rate,
+            self.features,
+            self.labels,
+            log_gradient=True,
+        )
+
+        self.assertIsNotNone(self.log_reg.gradients)

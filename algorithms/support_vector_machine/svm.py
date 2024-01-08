@@ -25,7 +25,7 @@ class SVM:
         self.b = None
         self.loss = []
 
-    def fit(self, X: ArrayLike, y: ArrayLike) -> list[float]:
+    def fit(self, X: ArrayLike, y: ArrayLike) -> None:
         """Calculate optimal SVM parameters using batch gradient descent.
 
         Args:

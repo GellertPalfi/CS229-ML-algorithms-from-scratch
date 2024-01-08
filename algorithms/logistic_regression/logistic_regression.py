@@ -1,10 +1,11 @@
 from typing import Literal
 
 import numpy as np
-from algorithms.logistic_regression.binary_metrics import accuracy
 from numpy.typing import ArrayLike
 from sklearn.linear_model import LogisticRegression as LR
 from sklearn.metrics import accuracy_score
+
+from algorithms.logistic_regression.binary_metrics import accuracy
 
 
 class LogisticRegression:
