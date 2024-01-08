@@ -44,20 +44,24 @@ All algorithms and helper functions are tested with a coverage of: [![Coverage S
 
 <a id="prerequisite"></a>
 # Prerequisites
-To run this project you will need to have python installed on your machine and (preferably) a virtual enviroment.
+To run this project you will need to have python installed on your machine and (preferably) a virtual environment.
 
 <a id="install"></a>
 # Installation
 Installation steps:
-1. activate your virtual enviroment
+1. activate your virtual environment
 2. install necessary libraries:  
 ```pip install -r requirements.txt```
-3. run any of the scripts 
+3. Because of the way the files are structured you have to run the files as modules:   
+`python -m path.to.file`
+
+For example running the `algorithms/linear_regression/linear_regression.py` would look like this:  
+`python -m algorithms.linear_regression.linear_regression`
 
 <a id="lin-reg"></a>
 # Linear regression
-[Linear regression](https://en.wikipedia.org/wiki/Linear_regression) is a statistical model which tries to model the relationship beetween the [dependent and independent variables](https://en.wikipedia.org/wiki/Dependent_and_independent_variables).  
-It is mostly used for predicting continous values and rarely for classification as it is really sensitive to outliers.  
+[Linear regression](https://en.wikipedia.org/wiki/Linear_regression) is a statistical model which tries to model the relationship between the [dependent and independent variables](https://en.wikipedia.org/wiki/Dependent_and_independent_variables).  
+It is mostly used for predicting continuous values and rarely for classification as it is really sensitive to outliers.  
 Altough a closed-form solution exits to linear regression, which would give you the optimal parameter values directly, I still used gradient descent to gain deeper knowledge of the algorithm.  
   
 The error metric that we are trying to minimalize is the [root](https://en.wikipedia.org/wiki/Root-mean-square_deviation) (RMSE) or the normal [mean squared error](https://en.wikipedia.org/wiki/Mean_squared_error) (MSE):  
@@ -74,7 +78,7 @@ eventually converge given enough iterations.
 
 <a id="log-reg"></a>
 # Logistic regression
-[Logistic regression](https://en.wikipedia.org/wiki/Logistic_regression) is a statistical model which works by applying the [logistic function](https://en.wikipedia.org/wiki/Logistic_function) to the linear relationship combined from the input features, weights and biases. Mostly used for classification with a given treshold (usually 0.5), where values returned by the logistic function greater than or equal to the treshold are classified as 1 , below the treshold classified as 0.  
+[Logistic regression](https://en.wikipedia.org/wiki/Logistic_regression) is a statistical model which works by applying the [logistic function](https://en.wikipedia.org/wiki/Logistic_function) to the linear relationship combined from the input features, weights and biases. Mostly used for classification with a given threshold (usually 0.5), where values returned by the logistic function greater than or equal to the threshold are classified as 1 , below the threshold classified as 0.  
 
 Logistic regression is most commonly trained by minimizing the negative of the log likelihood:  
 ![image](https://github.com/GellertPalfi/CS229-ML-algorithms-from-scratch/assets/69762257/18b1fb19-b291-4bca-b81e-236f616bbb15)
@@ -89,12 +93,12 @@ This means my algorithm would eventually reach the same weights as sklearn given
 <a id="naive-bayes"></a>
 # Naive Bayes
 [Naive Bayes classifier](https://en.wikipedia.org/wiki/Naive_Bayes_classifier) is a probabilistic classifier based on [Bayes' theorem](https://en.wikipedia.org/wiki/Bayes%27_theorem) and the **naive** assumption
-that the features are [independent](https://en.wikipedia.org/wiki/Independence_(probability_theory)). Although the features are rarely independent naive bayes is nevertheless used in real situations because of its speed and the fact that it gives surprisingly good results. Naive bayes differs from the usual ml algorithm because for the training a closed-form solution can be used rather than an expensive iterative algorithm such as [gradient descent](#grad-desc). I implemented a Gaussian Naive bayes classifier which assumes that the features are independent, continous variables and they follow a normal distribution.
+that the features are [independent](https://en.wikipedia.org/wiki/Independence_(probability_theory)). Although the features are rarely independent naive bayes is nevertheless used in real situations because of its speed and the fact that it gives surprisingly good results. Naive bayes differs from the usual ml algorithm because for the training a closed-form solution can be used rather than an expensive iterative algorithm such as [gradient descent](#grad-desc). I implemented a Gaussian Naive bayes classifier which assumes that the features are independent, continuous variables and they follow a normal distribution.
 
 For this you only need to calculate the mean, variance and prior probability of each class(here i used [polars](https://pola.rs): 
 ![image](https://github.com/GellertPalfi/CS229-ML-algorithms-from-scratch/assets/69762257/989bf45e-9017-47cb-8b76-7d386d05dd44)  
 
-After this any new prediction can be made by pluggint these variables into the [Probability density function](https://en.wikipedia.org/wiki/Probability_density_function) and returing the label with the higest probablity:  
+After this any new prediction can be made by pluggint these variables into the [Probability density function](https://en.wikipedia.org/wiki/Probability_density_function) and returning the label with the highest probability:  
 ![image](https://github.com/GellertPalfi/CS229-ML-algorithms-from-scratch/assets/69762257/500addef-663f-4957-a2fc-aa3ccaa58875)  
 
 
@@ -103,7 +107,7 @@ After this any new prediction can be made by pluggint these variables into the [
 
 <a id="svm"></a>
 # Support Vector Machine
-[Support vector machines](https://en.wikipedia.org/wiki/Support_vector_machine) are [max-margin] models. The algorithm tries to find a hyperplane which best seperates the two classes. For this it uses support vectors (the closest point of the two classes to the hyperplane) and by maximizing the margin (the distance beetween the points and the hyperplane). SVM-s are widely adopted in the industry, because they can classify data that is not linearly separable, by utilising the [kernel trick](https://en.wikipedia.org/wiki/Kernel_method#Mathematics:_the_kernel_trick) which cast the points into a higher dimensional, without actually calculating the point values in the higher dimension space.Here they might actually  be linearly seperable.
+[Support vector machines](https://en.wikipedia.org/wiki/Support_vector_machine) are [max-margin] models. The algorithm tries to find a hyperplane which best separates the two classes. For this it uses support vectors (the closest point of the two classes to the hyperplane) and by maximizing the margin (the distance between the points and the hyperplane). SVM-s are widely adopted in the industry, because they can classify data that is not linearly separable, by utilising the [kernel trick](https://en.wikipedia.org/wiki/Kernel_method#Mathematics:_the_kernel_trick) which cast the points into a higher dimensional, without actually calculating the point values in the higher dimension space.Here they might actually  be linearly separable.
 There are 2 types of the svms:
 - Linear SVM
 - Non-linear SVM
@@ -116,7 +120,7 @@ I've implemented a Linear SVM with a simple linear kernel. I followed the same p
 # Batch Gradient Descent
 For us to understand gradient descent, first we need to know what the gradient is. According to wikipedia:  
 ![gradient](https://github.com/GellertPalfi/CS229-ML-algorithms-from-scratch/assets/69762257/89c4eab7-8327-4323-bbe5-b724df9a4763).  
-With (kind of) human-readable terms: The gradient is a vector whose length matches the number of variables in the function it is derived from. Each component is the derivative of the function with respect to one variable, treating all others as constants, indicating how altering that specific variable leads to the greatest change in the function's value. So now knowing the gradient, we can step into the opposite direction (hence the name descent) of the gradient to reach the minimum of the function (which is usually our objective when training an ml model). This goes on until the gradient is converged, which is usally checked by either comparing the loss or the gradient change by iteration and if they are only changing by a really small value between steps, the algorithm has converged.  
+With (kind of) human-readable terms: The gradient is a vector whose length matches the number of variables in the function it is derived from. Each component is the derivative of the function with respect to one variable, treating all others as constants, indicating how altering that specific variable leads to the greatest change in the function's value. So now knowing the gradient, we can step into the opposite direction (hence the name descent) of the gradient to reach the minimum of the function (which is usually our objective when training an ml model). This goes on until the gradient is converged, which is usually checked by either comparing the loss or the gradient change by iteration and if they are only changing by a really small value between steps, the algorithm has converged.  
 There are several types of gradient descent:  
 - Batch gradient descent
 - Stochastic Gradient Descent
