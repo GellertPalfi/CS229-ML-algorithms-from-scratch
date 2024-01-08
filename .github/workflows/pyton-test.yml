@@ -27,8 +27,9 @@ jobs:
     - name: Run tests and generate coverage
       run: |
         docker run cs229 coverage run -m pytest
-        docker run cs229 coverage lcov
         docker run cs229 ls -a
+        docker run cs229 coverage lcov
+        
 
     - name: Coveralls GitHub Action
       uses: coverallsapp/github-action@v2.2.3
