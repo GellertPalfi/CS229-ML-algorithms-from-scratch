@@ -18,10 +18,7 @@ jobs:
     - name: Build docker image
       run: docker build -t cs229 .
     - name: Run tests and generate coverage
-      run: |
-        mkdir -p coverage_data
-        docker run -v $(pwd)/coverage_data:/usr/src/app cs229 sh -c "ls /usr/src/app && coverage run -m pytest && ls -a"
-        ls -l ./coverage_data
+      run: docker run cs229 sh -c "ls /usr/src/app && coverage run -m pytest && ls -a"
     - name: Run formatting
       run: docker run cs229 ruff format --check .
       
