@@ -17,18 +17,18 @@ jobs:
     
     - name: Build docker image
       run: docker build -t cs229 .
-
+      
+    - name: Run tests and generate coverage
+      run: docker run --name mlalgs cs229 coverage run -m pytest
+      
+    - name: Copy coverage file
+      run: docker cp mlalgs:/usr/src/app/.coverage ./.coverage
+      
     - name: Run formatting
       run: docker run cs229 ruff format --check .
       
     - name: Run linting
       run: docker run cs229 ruff .
-    
-    - name: Run tests
-      run: docker run cs229 pytest
-
-    - name: Run coverage check
-      run: coverage run -m pytest
       
     - name: Coveralls GitHub Action
       uses: coverallsapp/github-action@v2.2.3
