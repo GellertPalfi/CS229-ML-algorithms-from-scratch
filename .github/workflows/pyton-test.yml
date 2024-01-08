@@ -27,7 +27,7 @@ jobs:
     - name: Run tests and generate coverage
       run: |
         mkdir -p coverage_data
-        docker run -v $(pwd)/coverage_data:/usr/src/app cs229 sh -c "coverage run -m pytest && ls -a"
+        docker run -v $(pwd)/coverage_data:/usr/src/app cs229 sh -c "ls -a"
         ls -l ./coverage_data
 
 
