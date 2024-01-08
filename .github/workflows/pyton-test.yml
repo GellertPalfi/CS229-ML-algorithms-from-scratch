@@ -18,11 +18,19 @@ jobs:
     - name: Build docker image
       run: docker build -t cs229 .
 
-    - name: Run formatting in the container
+    - name: Run formatting
       run: docker run cs229 ruff format --check .
       
-    - name: Run linting in the container
+    - name: Run linting
       run: docker run cs229 ruff .
     
-    - name: Run tests in the container
+    - name: Run tests
       run: docker run cs229 pytest
+
+    - name: Run coverage check
+      run: coverage run -m pytest
+      
+    - name: Coveralls GitHub Action
+      uses: coverallsapp/github-action@v2.2.3
+            
+    
