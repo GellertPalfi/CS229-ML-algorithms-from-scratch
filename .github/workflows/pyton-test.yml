@@ -20,7 +20,7 @@ jobs:
     - name: Run tests and generate coverage
       run: docker run --name mlalgs cs229 coverage run -m pytest
     - name: Copy coverage file
-      run: docker cp mlagls:/usr/src/app/.coverage ./.coverage
+      run: docker cp mlalgs:/usr/src/app/.coverage ./.coverage
     - name: Run formatting
       run: docker run cs229 ruff format --check .
       
