@@ -4,3 +4,4 @@ scipy
 numpy
 scikit-learn
 ruff
+coverage
