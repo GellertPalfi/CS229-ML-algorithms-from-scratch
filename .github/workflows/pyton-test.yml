@@ -16,11 +16,8 @@ jobs:
     
     - name: Build docker image
       run: docker build -t cs229 .
-      
-    - name: Run tests and generate coverage
-      run: docker run --name mlalgs cs229 coverage run -m pytest
   
-    - name: Run coveralls
+    - name: Run tests and coveralls
       run: docker run -e COVERALLS_REPO_TOKEN=${{ secrets.COVERALL_REPO_KEY }} cs229 /bin/bash -c "coverage run -m pytest && coveralls"
       
     - name: Run formatting
