@@ -6,3 +6,5 @@ scikit-learn
 ruff
 coverage
 coveralls
+fastapi
+httpx
