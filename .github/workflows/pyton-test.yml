@@ -25,3 +25,42 @@ jobs:
       
     - name: Run linting
       run: docker run cs229 ruff .
+
+  push_to_ecr:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    
+    steps:
+     - uses: actions/checkout@v4
+
+     - name: Build docker image
+       run: docker build -t cs229 .
+
+     - name: Configure aws credentials
+       uses: aws-actions/configure-aws-credentials@v4
+       with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: eu-north-1
+
+     - name: Login to Amazon ECR
+       uses: aws-actions/amazon-ecr-login@v2
+     
+     - name: Build, tag, and push image to Amazon ECR
+       env: 
+         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+         ECR_REPOSITORY: mlops
+         IMAGE_TAG: mlops_test
+         run: |
+           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+
+
+
+
+
+
+
+     
