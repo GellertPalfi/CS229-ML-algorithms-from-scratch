@@ -21,7 +21,7 @@ The purpose of this project was to deepen my understanding of the most commonly 
 
 <a id="visualizations"></a>
 # Visualizations:
-Because looking at code is not the most interesting thing, here are some visualizations (Code included in the repo) that I made with my implementations of the algorithms.
+Because looking at code is not the most interesting thing, here are some visualizations that I made with my implementations of the algorithms.
 
 ### Linear regression line fit:
 ![lin_reg_fit](https://github.com/GellertPalfi/CS229-ML-algorithms-from-scratch/assets/69762257/9779e50f-5ed8-4f6c-80a7-27a4fb98fcb2)
